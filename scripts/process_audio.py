@@ -75,7 +75,7 @@ def main():
         upload_to_s3(str(file), s3_input_key)
 
         s3_uri = f"s3://{S3_BUCKET}/{s3_input_key}"
-        job_name = f"{prefix}-{base_name}".replace('_', '-')
+        job_name = f"{prefix}-{base_name}-{int(time.time())}".replace('_', '-')
         transcript_url = transcribe_audio(job_name, s3_uri)
         transcript = get_transcript_text(transcript_url)
 
