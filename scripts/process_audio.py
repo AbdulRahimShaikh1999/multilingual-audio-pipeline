@@ -26,7 +26,6 @@ def upload_to_s3(file_path, s3_key):
     s3.upload_file(file_path, S3_BUCKET, s3_key)
     print(f"Uploaded to s3://{S3_BUCKET}/{s3_key}")
 
-
 # Start Transcribe job
 def transcribe_audio(job_name, s3_uri):
     transcribe.start_transcription_job(
