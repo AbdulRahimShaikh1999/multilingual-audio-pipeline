@@ -79,6 +79,8 @@ def main():
         transcript_url = transcribe_audio(job_name, s3_uri)
         transcript = get_transcript_text(transcript_url)
 
+        
+
         # Upload transcript
         transcript_key = f"{prefix}/transcripts/{base_name}.txt"
         s3.put_object(Bucket=S3_BUCKET, Key=transcript_key, Body=transcript.encode('utf-8'))
